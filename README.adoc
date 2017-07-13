@@ -2,3 +2,5 @@
 
 A simple Photography Catalog. 
 Stores in a relational DB but can also import and export a few formats.
+
+NOT EVEN CLOSE TO WORKING; DO NOT USE.
