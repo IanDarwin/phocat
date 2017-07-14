@@ -1,8 +1,8 @@
 package phocat.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.metawidget.inspector.annotation.UiComesAfter;
+import org.metawidget.inspector.annotation.UiLabel;
 import org.metawidget.inspector.annotation.UiReadOnly;
 import org.metawidget.inspector.annotation.UiSection;
 
@@ -47,6 +48,7 @@ public class Image implements Serializable {
 	
 	/** The keywords - really why we're here */
 	@UiComesAfter("id")
+	@UiLabel("Image Keywords")
 	public List<String> getKeywords() {
 		return keywords;
 	}
@@ -56,8 +58,9 @@ public class Image implements Serializable {
 	
 	@UiSection("Metadata")
 	
-	/** The creation date if known */
+	/** The creation date of the "master" file (raw, or the jpg if no raw) */
 	@UiComesAfter("keywords")
+	@UiReadOnly
 	public Date getCreated() {
 		return created;
 	}
@@ -65,8 +68,9 @@ public class Image implements Serializable {
 		this.created = created;
 	}
 	
-	/** The modification time of the image file */
+	/** The modification time of the "master" image file */
 	@UiComesAfter("created")
+	@UiReadOnly
 	public Date getModified() {
 		return modified;
 	}
